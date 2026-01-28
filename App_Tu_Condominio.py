@@ -39,7 +39,7 @@ class Administracion:
         self.nombre_conserje = nombre_conserje
         self.telefono = telefono
     def __str__(self):
-        return (f"Administracion :{self.nombre_conserje} / Telefono: {self.telefono}")
+        return f"Administracion :{self.nombre_conserje} / Telefono: {self.telefono}"
 
 class Edificio:
     def __init__(self, nombre, nombre_conserje, telefono_conserje):
@@ -48,10 +48,8 @@ class Edificio:
         self.administracion = Administracion(nombre_conserje, telefono_conserje) #Composicion dependencia administracion y edificio
 
     def agregar_departamento(self, depto):
-        if isinstance(depto, Departamento):#isinstance veifica q sea del tipo departamento
             self.departamentos.append(depto)
-        else:
-            print("Error: Solo se pueden agregar objetos de tipo Departamento.")
+
 
     def buscar_departamento(self, dato):
         for depto in self.departamentos:
@@ -60,7 +58,7 @@ class Edificio:
             # isinstance verifica q sea del tipo cadena texto y este en minuscula y busca por nombre
             elif isinstance(dato, str) and depto.propietario.lower() == dato.lower():
                 return depto
-        return (f"Departamento {dato} no encontrado")
+        return f"Departamento {dato} no encontrado"
 # agregamos datos de acuerdo a estructura
 #creacion de edificio
 edificio = Edificio("BootCamp", "Sam", "+5696532365")
